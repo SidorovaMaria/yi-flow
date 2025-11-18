@@ -24,7 +24,8 @@
   --accent: #2283d3;
   --accent-light: #53a2e3; /* hover, link highlight */
   --accent-dark: #1864a8;
-  --error: #d93025;
+  --error: #d91b1b;
+  --disabled: #e8ecf3;
 }
 
 :root.dark {
@@ -51,7 +52,7 @@
   --accent: #2c8ddd;
   --accent-light: #57a9e8; /* hover */
   --accent-dark: #1f6fb4; /* pressed */
-  --error: #e7493e;
+  --error: #d91b1b;
 }
 @theme inline {
   --font-chillax: var(--font-chillax);
@@ -75,6 +76,7 @@
   --color-accent-l: var(--accent-light);
   --color-accent-d: var(--accent-dark);
   --color-error: var(--error);
+  --color-disabled: var(--disabled);
 }
 
 @layer base {
@@ -100,4 +102,7 @@
 
 @utility card-shadow {
   @apply shadow-[rgba(0,0,0,0.3)] dark:shadow-[rgba(205,204,204,0.3)];
+}
+@utility flex-center {
+  @apply flex items-center justify-center;
 }
