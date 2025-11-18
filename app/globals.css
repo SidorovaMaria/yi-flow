@@ -51,7 +51,7 @@
   --accent: #2c8ddd;
   --accent-light: #57a9e8; /* hover */
   --accent-dark: #1f6fb4; /* pressed */
-  --error: #f28b82;
+  --error: #e7493e;
 }
 @theme inline {
   --font-chillax: var(--font-chillax);
@@ -59,41 +59,45 @@
   --font-zcool-xiaowei: var(--font-zcool-xiaowei);
   --font-ma-shan-zheng: var(--font-ma-shan-zheng);
   --font-noto-sans-sc: var(--font-noto-sans-sc);
-  --text: var(--text);
-  --text-alt: var(--text-alt);
-  --text-muted: var(--text-muted);
-  --background: var(--background);
-  --background-alt: var(--background-alt);
-  --background-muted: var(--background-muted);
-  --primary: var(--primary);
-  --primary-light: var(--primary-light);
-  --primary-dark: var(--primary-dark);
-  --secondary: var(--secondary);
-  --secondary-light: var(--secondary-light);
-  --secondary-dark: var(--secondary-dark);
-  --accent: var(--accent);
-  --accent-light: var(--accent-light);
-  --accent-dark: var(--accent-dark);
-  --error: var(--error);
+  --color-text: var(--text);
+  --color-text-alt: var(--text-alt);
+  --color-text-muted: var(--text-muted);
+  --color-bg: var(--background);
+  --color-bg-alt: var(--background-alt);
+  --color-bg-muted: var(--background-muted);
+  --color-primary: var(--primary);
+  --color-primary-l: var(--primary-light);
+  --color-primary-d: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-l: var(--secondary-light);
+  --color-secondary-d: var(--secondary-dark);
+  --color-accent: var(--accent);
+  --color-accent-l: var(--accent-light);
+  --color-accent-d: var(--accent-dark);
+  --color-error: var(--error);
 }
 
 @layer base {
   body {
-    @apply bg-(--background) text-(--text);
+    @apply bg-bg text-text;
   }
   h1 {
-    @apply font-chillax font-semibold text-[32px] leading-[120%] tracking-[-0.5px];
+    @apply font-chillax text-[32px] leading-[120%] font-semibold tracking-[-0.5px];
   }
   h2 {
-    @apply font-chillax text-2xl font-semibold leading-[120%] tracking-[-0.3px];
+    @apply font-chillax text-2xl leading-[120%] font-semibold tracking-[-0.3px];
   }
   h3 {
-    @apply font-chillax text-xl font-semibold leading-[110%];
+    @apply font-chillax text-xl leading-[110%] font-semibold;
   }
   h4 {
-    @apply font-chillax text-[17px] font-medium leading-[110%];
+    @apply font-chillax text-[17px] leading-[110%] font-medium;
   }
   h5 {
-    @apply font-chillax text-sm font-medium leading-[110%];
+    @apply font-chillax text-sm leading-[110%] font-medium;
   }
+}
+
+@utility card-shadow {
+  @apply shadow-[rgba(0,0,0,0.3)] dark:shadow-[rgba(205,204,204,0.3)];
 }
