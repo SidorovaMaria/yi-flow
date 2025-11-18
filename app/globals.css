@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+:root {
+  --text: #151719;
+  --text-alt: #2b2e31;
+  --text-muted: #5c646a;
+
+  /* Background */
+  --background: #ecf0f3;
+  --background-alt: #c7d2e0;
+  --background-muted: #f6f8fa;
+
+  /* Primary – deep blue slate */
+  --primary: #2c4d68;
+  --primary-light: #436680; /* hover background / gradient top */
+  --primary-dark: #1b3349; /* focus ring, active button */
+
+  /* Secondary – soft blue mist */
+  --secondary: #84b4dc;
+  --secondary-light: #a2c8e7; /* highlights, chips */
+  --secondary-dark: #5e96bf; /* hover, pressed */
+
+  /* Accent – bright ocean blue */
+  --accent: #2283d3;
+  --accent-light: #53a2e3; /* hover, link highlight */
+  --accent-dark: #1864a8;
+  --error: #d93025;
+}
+
+:root.dark {
+  --text: #e6e8ea;
+  --text-alt: #cfd3d7;
+  --text-muted: #9aa3ab;
+
+  /* Background */
+  --background: #0c1013;
+  --background-alt: #19242b;
+  --background-muted: #1b2227;
+
+  /* Primary – muted steel blue */
+  --primary: #97b8d3;
+  --primary-light: #b6d0e4; /* hover */
+  --primary-dark: #7da2c2; /* pressed */
+
+  /* Secondary – deep marine */
+  --secondary: #23537b;
+  --secondary-light: #316a98; /* hover */
+  --secondary-dark: #183b5a; /* pressed */
+
+  /* Accent – electric cyan-blue */
+  --accent: #2c8ddd;
+  --accent-light: #57a9e8; /* hover */
+  --accent-dark: #1f6fb4; /* pressed */
+  --error: #f28b82;
+}
+@theme inline {
+  --font-chillax: var(--font-chillax);
+  --font-synonym: var(--font-synonym);
+  --font-zcool-xiaowei: var(--font-zcool-xiaowei);
+  --font-ma-shan-zheng: var(--font-ma-shan-zheng);
+  --font-noto-sans-sc: var(--font-noto-sans-sc);
+  --text: var(--text);
+  --text-alt: var(--text-alt);
+  --text-muted: var(--text-muted);
+  --background: var(--background);
+  --background-alt: var(--background-alt);
+  --background-muted: var(--background-muted);
+  --primary: var(--primary);
+  --primary-light: var(--primary-light);
+  --primary-dark: var(--primary-dark);
+  --secondary: var(--secondary);
+  --secondary-light: var(--secondary-light);
+  --secondary-dark: var(--secondary-dark);
+  --accent: var(--accent);
+  --accent-light: var(--accent-light);
+  --accent-dark: var(--accent-dark);
+  --error: var(--error);
+}
+
+@layer base {
+  body {
+    @apply bg-(--background) text-(--text);
+  }
+  h1 {
+    @apply font-chillax font-semibold text-[32px] leading-[120%] tracking-[-0.5px];
+  }
+  h2 {
+    @apply font-chillax text-2xl font-semibold leading-[120%] tracking-[-0.3px];
+  }
+  h3 {
+    @apply font-chillax text-xl font-semibold leading-[110%];
+  }
+  h4 {
+    @apply font-chillax text-[17px] font-medium leading-[110%];
+  }
+  h5 {
+    @apply font-chillax text-sm font-medium leading-[110%];
+  }
+}
