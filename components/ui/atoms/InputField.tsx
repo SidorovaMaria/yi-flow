@@ -22,7 +22,7 @@ const inputField = cva(
 );
 
 const inputFieldContainer = cva(
-  "rounded-lg border border-primary-l/30 flex items-center w-full max-w-[400px] gap-2.5 hover:border-primary focus-within:border-primary transition-colors duration-150 ease-in-out has-invalid:border-error placeholder:text-text-muted has-disabled:cursor-not-allowed has-disabled:border-border/30 has-disabled:bg-bg-alt/50 has-disabled:text-text-muted",
+  "rounded-lg border border-primary-l/30 flex items-center w-full gap-2.5 hover:border-primary focus-within:border-primary transition-colors duration-150 ease-in-out has-invalid:border-error placeholder:text-text-muted has-disabled:cursor-not-allowed has-disabled:border-border/30 has-disabled:bg-bg-alt/50 has-disabled:text-text-muted",
   {
     variants: {
       size: {
@@ -43,13 +43,24 @@ export interface InputFieldProps
   label: string;
   asChild?: boolean;
   icon?: React.ReactNode;
+  iconPosition?: "left" | "right";
   helperText?: string;
   error?: boolean;
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
   (
-    { className, label, size = "lg", asChild = false, icon, helperText, error, ...props },
+    {
+      className,
+      label,
+      size = "lg",
+      asChild = false,
+      icon,
+      iconPosition = "left",
+      helperText,
+      error,
+      ...props
+    },
     ref
   ) => {
     const Comp = asChild ? Slot : "input";
@@ -58,18 +69,19 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
       <div className={cn(inputField({ size }), className)}>
         <label>{label}</label>
         <div className={cn(inputFieldContainer({ size }))}>
-          {icon && <div>{icon}</div>}
+          {icon && iconPosition === "left" && <div>{icon}</div>}
           <Comp
             ref={ref}
             className="text-text placeholder:text-text-muted peer w-full bg-transparent text-[15px] leading-5 outline-none"
             {...props}
           />
+          {icon && iconPosition === "right" && <div>{icon}</div>}
         </div>
         {helperText && (
           <div
             className={cn(
               "text-accent-d dark:text-accent-l peer-invalid:text-error flex items-center justify-start gap-1",
-              error && "text-error"
+              error && "text-error!"
             )}
           >
             <InfoIcon

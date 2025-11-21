@@ -23,7 +23,7 @@ const buttonVariants = cva(
         ghost:
           "bg-transparent text-text hover:bg-bg-muted shadow-none! focus:bg-bg-muted ",
         outline:
-          "border border-[color-mix(in_srgb,var(--primary)_60%,transparent)] bg-transparent text-primary shadow-none! hover:bg-[color-mix(in_srgb,var(--primary)_6%,transparent)] focus:bg-[color-mix(in_srgb,var(--primary)_6%,transparent)] ",
+          "border border-[color-mix(in_srgb,var(--text)_60%,transparent)] bg-transparent  shadow-none! hover:bg-[color-mix(in_srgb,var(--primary)_6%,transparent)] focus:bg-[color-mix(in_srgb,var(--primary)_6%,transparent)] ",
         destructive: "bg-error text-white hover:bg-error/80 focus:bg-error/80 ",
       },
       size: {
@@ -57,6 +57,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         ref={ref}
+        disabled={props.disabled}
         className={cn(buttonVariants({ variant, fullWidth, size }), className)}
         {...props}
       />

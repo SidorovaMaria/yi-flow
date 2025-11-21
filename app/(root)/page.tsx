@@ -1,15 +1,16 @@
-import { Button } from "@/components/ui/atoms/Button";
-import { Input } from "@/components/ui/atoms/Input";
-import { Label } from "@/components/ui/atoms/Label";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
+import Logout from "./Logout";
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
+  if (!session) {
+    redirect("/login");
+  }
+  console.log("Session in home page:", session);
   return (
-    <div className="flex flex-col">
-      <Button>Primary Trial</Button>
-      <div className="space-y-1">
-        <Label htmlFor="word">Word</Label>
-        <Input id="word" placeholder="输入汉字 / type the character" />
-      </div>
+    <div className="flex w-full flex-col">
+      <Logout />
     </div>
   );
 }

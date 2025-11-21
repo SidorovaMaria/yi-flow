@@ -1,6 +1,6 @@
 import React from "react";
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   return <div>{children}</div>;
 };
 
